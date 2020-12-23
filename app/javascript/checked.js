@@ -80,11 +80,11 @@ function check() {
           return null;
         }
 // XHR.responseでレスポンスされてきたJSONにアクセスできる
-// XHR.response.post:posts_controller.rbのcheckedアクションで返却したitemを取得
+// XHR.response.post:posts_controller.rbのcheckedアクションで返却したpost:itemを取得
 // レスポンスされたデータを変数itemに代入している
         const item = XHR.response.post;
 
-// 既読であれば
+// 既読であれば(既読に書き換えられていたら)
         if (item.checked === true) {
 
 // setAttributeメソッド:指定した要素上に新しい属性を追加、または既存の属性の値を変更
@@ -93,7 +93,7 @@ function check() {
 // 既読状態であれば、灰色に変わるcssを適用するためのカスタムデータを追加している
           post.setAttribute("data-check", "true");
 
-// 未読であれば
+// 未読であれば(既読を解除に書き換えられていたら)
         } else if (item.checked === false) {
 
 // removeAttributeメソッド　指定した要素から、特定の属性を削除
