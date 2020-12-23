@@ -25,11 +25,13 @@ class PostsController < ApplicationController
       post.update(checked: true)
     end
     # 更新したレコードをitem = Post.find(params[:id])で再取得
-    # render json:{ post: item }でJSON形式（データ）としてchecked.jsに返却
     item = Post.find(params[:id])
+
+    # render json:{ post: item }でJSON形式（データ）としてchecked.jsに返却
     # renderメソッド:レスポンスの出力をしてくれるメソッド
     # ユーザーへのレスポンスとして送信すべき内容を指定することができる
     # checkedアクションが呼び出された際に{ post: item }の値をjson形式で出力
     render json: { post: item }
   end
+
 end
