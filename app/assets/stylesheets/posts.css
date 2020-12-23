@@ -1,9 +1,12 @@
-.post{
+.post {
   border: 1px solid;
   width: 40%;
   margin-top: 30px;
 }
-
-.post-date{
+.post-date {
   color: gray;
+}
+/* 既読しているメモを「グレーアウト（背景がグレー）」にする */
+div[data-check="true"] {
+  background: #585555;
 }

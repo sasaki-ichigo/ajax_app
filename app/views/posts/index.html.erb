@@ -1,11 +1,14 @@
 <h1>AjaxApp</h1>
-<%= form_with url:  "/posts", method: :post,id: "form" do |form| %>
+  <%= form_with url: "/posts", method: :post,id: "form" do |form| %>
   <%= form.text_field :content %>
   <%= form.submit '投稿する' , id: "submit" %>
 <% end %>
-
 <% @posts.each do |post| %>
-  <div class="post">
+
+<%# data-idとdata-checkのカスタムデータ属性(HTMLに対して任意の属性を持たせられる機能)を追加 %>
+<%# data-id(メモのidが入る) %>
+<%# data-check(既読の有無を管理するcheckedカラムの情報が入る) %>
+  <div class="post" data-id=<%= post.id %> data-check=<%= post.checked %>>
     <div class="post-date">
       投稿日時：<%= post.created_at %>
     </div>
