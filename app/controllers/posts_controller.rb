@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def create
     # createメソッド:newとsaveを同時に行う
     post = Post.create(content: params[:content], checked: false)
-    # render json:{ post: post }でJSON形式（データ）としてxxxxx.jsに返却
+    # render json:{ post: post }でJSON形式（データ）としてmemo.jsに返却
     # renderメソッド:レスポンスの出力をしてくれるメソッド
     # ユーザーへのレスポンスとして送信すべき内容を指定することができる
     # createアクションが呼び出された際に{ post: post }の値をjson形式で出力

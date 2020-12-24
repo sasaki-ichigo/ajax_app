@@ -51,7 +51,7 @@ function check() {
 // open:XMLHttpRequestで定義されているメソッド:どのようなリクエストをするのかを指定
 // 第一引数にはHTTPメソッド:GET
 // 第二引数にはパス:/posts/${postId}
-// 第三引数には非同期通信であるかをbooleanで記述:true
+// 第三引数には非同期通信であるかをbooleanで記述:true(非同期通信するってこと)
 // boolean型【変数の型】:「真？偽？」って書いてある変数の箱「この箱には真（true）か偽（false）のどちらかの値が入りますよ」な決まり
 // openでリクエストを初期化する
       XHR.open("GET", `/posts/${postId}`, true);
