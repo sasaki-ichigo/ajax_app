@@ -51,7 +51,7 @@ function check() {
 // open:XMLHttpRequestで定義されているメソッド:どのようなリクエストをするのかを指定
 // 第一引数にはHTTPメソッド:GET
 // 第二引数にはパス:/posts/${postId}
-// 第三引数には非同期通信であるかをbooleanで記述:true
+// 第三引数には非同期通信であるかをbooleanで記述:true(非同期通信するってこと)
 // boolean型【変数の型】:「真？偽？」って書いてある変数の箱「この箱には真（true）か偽（false）のどちらかの値が入りますよ」な決まり
 // openでリクエストを初期化する
       XHR.open("GET", `/posts/${postId}`, true);
@@ -80,11 +80,11 @@ function check() {
           return null;
         }
 // XHR.responseでレスポンスされてきたJSONにアクセスできる
-// XHR.response.post:posts_controller.rbのcheckedアクションで返却したitemを取得
+// XHR.response.post:posts_controller.rbのcheckedアクションで返却したpost:itemを取得
 // レスポンスされたデータを変数itemに代入している
         const item = XHR.response.post;
 
-// 既読であれば
+// 既読であれば(既読に書き換えられていたら)
         if (item.checked === true) {
 
 // setAttributeメソッド:指定した要素上に新しい属性を追加、または既存の属性の値を変更
@@ -93,7 +93,7 @@ function check() {
 // 既読状態であれば、灰色に変わるcssを適用するためのカスタムデータを追加している
           post.setAttribute("data-check", "true");
 
-// 未読であれば
+// 未読であれば(既読を解除に書き換えられていたら)
         } else if (item.checked === false) {
 
 // removeAttributeメソッド　指定した要素から、特定の属性を削除

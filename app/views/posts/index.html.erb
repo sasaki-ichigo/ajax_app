@@ -1,10 +1,17 @@
 <h1>AjaxApp</h1>
+<%# id:"form"を使ってmemo.jsが「フォームに入力された値」を取得する %>
   <%= form_with url: "/posts", method: :post,id: "form" do |form| %>
-  <%= form.text_field :content %>
+<%# id: "content"を使ってmemo.jsが「メモの入力フォームをリセットするためのリセット対象の要素であるcontent」を取得する %>
+  <%= form.text_field :content  , id: "content"%>
+<%# id:"submit"を使ってmemo.jsが「投稿する」ボタンの情報を取得する %>
   <%= form.submit '投稿する' , id: "submit" %>
 <% end %>
-<% @posts.each do |post| %>
+<%# 投稿後にメモを追加する要素 %>
+<%# id="list"を使ってmemo.jsが「HTMLを描画する場所を指定する際に使用する「描画する親要素」のlistの要素」を取得する %>
+<div id="list">
+</div>
 
+<% @posts.each do |post| %>
 <%# data-idとdata-checkのカスタムデータ属性(HTMLに対して任意の属性を持たせられる機能)を追加 %>
 <%# data-id(メモのidが入る) %>
 <%# data-check(既読の有無を管理するcheckedカラムの情報が入る) %>
